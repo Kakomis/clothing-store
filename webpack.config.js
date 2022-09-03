@@ -13,7 +13,7 @@ module.exports = {
         publicPath: '/',
     },
     resolve: {
-        extensions: ['.js','.jsx'],
+        extensions: ['.js','.jsx', '.ts', '.tsx'],
     },
     module: {
         rules: [
@@ -23,6 +23,11 @@ module.exports = {
                 use: [{
                     loader: 'babel-loader'
                 }]
+            },
+            {
+                test: /\.(ts|tsx)$/,
+                exclude: /node_modules/,
+                use: 'ts-loader'
             },
             {
                 test: /\.html$/,
