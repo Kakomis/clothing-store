@@ -1,20 +1,22 @@
-import React from 'react'
-import { ProductContainer, Image, AddButton, Footer, Name, Price }  from './styles.js'
+import React, { FC } from 'react'
+import { ProductContainer, Image, AddButton, Footer, Name, Price }  from './styles'
 import { BUTTON_TYPE_CLASSES } from '../Button'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToCart } from '../../store/cart/cart.actions'
 import { selectCartItems } from '../../store/cart/cart.selector'
+import { CategoryItem } from '../../store/categories/categories.types'
 
-const ProductCard = ({ product }) => {
+type ProductCardProps = {
+  product: CategoryItem
+}
+
+const ProductCard: FC<ProductCardProps>  = ({ product }) => {
   const {imageUrl, name, price} = product
-  
   const dispatch = useDispatch()
-
   const cartItems = useSelector(selectCartItems)
 
-  const addProductToCart = () => {
-    dispatch(addToCart(cartItems, product))
-  }
+  const addProductToCart = () => dispatch(addToCart(cartItems, product))
+
 
   return (
     <ProductContainer>

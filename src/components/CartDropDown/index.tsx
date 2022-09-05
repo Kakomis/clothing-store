@@ -1,5 +1,5 @@
 import React from 'react'
-import { CartDropDownContainer, CartItems, EmptyMessage } from  './styles.js'
+import { CartDropDownContainer, CartItems, EmptyMessage } from  './styles'
 import Button from '../Button'
 import CartItem from '../CartItem'
 import { useNavigate } from 'react-router-dom'

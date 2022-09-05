@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { MouseEvent, FC } from 'react'
 import shopping from '../../assets/shoppingBag.svg'
 import { CartIconContainer, ShoppingIcon, ItemCount } from './styles'
 import { useSelector } from 'react-redux'
 import { selectCartCount } from '../../store/cart/cart.selector'
 
-const CartIcon = ({ toogleOpen }) => {
+type CartIconProps = {
+  toogleOpen: () => void
+}
+
+const CartIcon: FC<CartIconProps>  = ({ toogleOpen }) => {
   const cartCount = useSelector(selectCartCount)  
   
   return (

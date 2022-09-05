@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles.scss'
+import { CategoriesPreviewContainer } from './styles'
 import CategoryPreviewElement from '../../components/CategoryPreviewElement'
 import Spinner from '../../components/Spinner'
 import { useSelector } from 'react-redux'
@@ -10,7 +10,7 @@ const CategoriesPreview = () => {
   const isLoading = useSelector(selectIsCategoriesLoading)
 
   return (
-    <div className='CategoriesPreview-container'>
+    <CategoriesPreviewContainer>
       {
         isLoading ? <Spinner /> :
         Object.keys(categories).map((title) => {
@@ -18,7 +18,7 @@ const CategoriesPreview = () => {
           return <CategoryPreviewElement key={title} products={products} title={title} />
         })
       }
-    </div>
+    </CategoriesPreviewContainer>
   )
 }
 

@@ -1,36 +1,54 @@
-import React from "react";
+import React, { FormEvent, ChangeEvent } from "react";
 import { SigninContainer, ButtonsContainer } from "./styles";
 import { FormInput } from "../FormInput";
 import Button, { BUTTON_TYPE_CLASSES } from "../Button";
 import { useDispatch } from "react-redux";
 import { googleSignInStart, emailSignInStart } from "../../store/user/user.actions";
 
+const defaultFormFields = {
+  email: '',
+  password: '',
+};
+
 const Signin = () => {
-  const form = React.useRef(null);
+  const [formFields, setFormFields] = React.useState(defaultFormFields);
+  const { email, password } = formFields;
   const dispatch = useDispatch();
 
   const signInWithGoogle = () => {
     dispatch(googleSignInStart());
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const formData = new FormData(form.current);
-    const userData = {
-      email: formData.get("email"),
-      password: formData.get("password"),
-    };
-
-    dispatch(emailSignInStart(userData.email, userData.password));
+    dispatch(emailSignInStart(email, password));
   };
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+
+    setFormFields({...formFields, [name]: value})
+  }
 
   return (
     <SigninContainer>
       <h2>Already have an account?</h2>
       <span>Sign in with your email and password or Google</span>
-      <form onSubmit={handleSubmit} ref={form}>
-        <FormInput name="email" type="email" label="Email" required />
-        <FormInput name="password" type="password" label="Password" required />
+      <form onSubmit={handleSubmit}>
+      <FormInput
+          onChange={handleChange}
+          value={email} 
+          name="email" 
+          type="email" 
+          required 
+          label='Email' />
+        <FormInput 
+          onChange={handleChange}
+          value={password} 
+          name="password" 
+          type="password" 
+          required 
+          label='Password' />
         <ButtonsContainer>
           <Button type="submit">Sign in</Button>
           <Button

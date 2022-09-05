@@ -2,8 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require("dotenv-webpack");
-// const Dotenv = require('dotenv')
-
 
 module.exports = {
     entry: './src/index.tsx',
@@ -13,7 +11,7 @@ module.exports = {
         publicPath: '/',
     },
     resolve: {
-        extensions: ['.js','.jsx', '.ts', '.tsx'],
+        extensions: ['.js','.jsx', '.ts', '.tsx']
     },
     module: {
         rules: [
@@ -57,7 +55,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].css'
         }),
-        new Dotenv({ systemvars: true })
+        new Dotenv({ systemvars: true }),
     ],
     devServer: {
         static: { directory: path.join(__dirname, 'dist') },

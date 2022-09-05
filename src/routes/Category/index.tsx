@@ -1,13 +1,17 @@
 import React from 'react'
-import './styles.scss'
+import { CategoryTitle, CategoryItem } from './styles'
 import ProductCard from '../../components/ProductCard'
 import Spinner from '../../components/Spinner'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { selectCategoriesMap, selectIsCategoriesLoading } from '../../store/categories/categories.selector'
 
+type CategoryRouteParams = {
+  category: string
+}
+
 const Category = () => {
-  const { category } = useParams()
+  const { category } = useParams<keyof CategoryRouteParams>() as CategoryRouteParams
   const categories = useSelector(selectCategoriesMap)
   const [products, setProducts] = React.useState(categories[category])  
   const isLoading = useSelector(selectIsCategoriesLoading)
@@ -18,16 +22,16 @@ const Category = () => {
 
   return (
     <>
-      <h2 className="category-title">{category.toUpperCase()}</h2>
+      <CategoryTitle className="category-title">{category.toUpperCase()}</CategoryTitle>
       {
         isLoading ? <Spinner /> :
-        <div className='CategoryItem-container'>
+        <CategoryItem>
           {
             products && products.map(product => 
                 <ProductCard key={product.id} product={product} />
             )
           }
-        </div>
+        </CategoryItem>
       }
     </>
   )

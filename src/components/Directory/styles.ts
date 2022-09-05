@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
-export const BackgroundImage = styled.div`
+type BackgroundImageProps = {
+    imageUrl: string;
+  }; 
+
+export const BackgroundImage = styled.div<BackgroundImageProps>`
     width: 100%;
     height: 100%;
     background-size: cover;
@@ -41,8 +45,6 @@ export const DirectoryContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    /*border: 1px solid black;*/
-    /*margin: 0 7.5px 15px;*/
     overflow: hidden;
     position: relative;
 
@@ -62,8 +64,4 @@ export const DirectoryContainer = styled.div`
     &:first-child {
         margin-right: 7.5px;
     }
-
-    /*&:last-child {
-        margin-left: 7.5px;
-    }*/
 `

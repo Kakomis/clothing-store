@@ -1,7 +1,9 @@
-import React from 'react'
-import { CartItemContainer, ItemDetails, Image, Name, Price } from './styles.js'
+import React, { FC } from 'react'
+import { CartItemContainer, ItemDetails, Image, Name, Price } from './styles'
+import { CartItem } from '../../store/cart/cart.types'
 
-const CartItem = ({ name, imageUrl, quantity, price }) => {
+
+const CartItem: FC<CartItem> = ({ name, imageUrl, quantity, price }) => {
   return (
     <CartItemContainer>
        <Image src={imageUrl} alt={name} />

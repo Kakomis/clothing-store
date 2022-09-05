@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector, shallowEqual } from 'react-redux'
+import { useSelector } from 'react-redux'
 import {
   Navigation,
   NavigationLogo,
@@ -12,9 +12,10 @@ import CartIcon from "../CartIcon";
 import CartDropDown from "../CartDropDown";
 import { useDispatch } from 'react-redux'
 import { signOutStart } from '../../store/user/user.actions'
+import { selectUser } from "../../store/user/user.selector";
 
 const NavBar = () => {
-  const currentUser = useSelector((state) => state.user.currentUser)
+  const currentUser = useSelector(selectUser)
   const [visible, setVisible] = React.useState(false);
 
   const dispatch = useDispatch()
