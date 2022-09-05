@@ -2,11 +2,11 @@ import styled from 'styled-components'
 
 export const DirectoriesContainer = styled.div`
     width: 80%;
-    margin: 0 auto;
+    margin: 30px auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(75px, 300px));
+    grid-template-columns: repeat(auto-fit, minmax(75px, 280px));
     grid-auto-rows: 2fr;
-    gap: 25px;
+    gap: 20px;
     justify-content: center;
 
     div:first-child {
@@ -17,7 +17,7 @@ export const DirectoriesContainer = styled.div`
     @media screen and (max-width: 768px) {
         width: 90%;
         gap: 0px;
-        
+
         div {
             margin-left: 0;
         }
@@ -25,11 +25,6 @@ export const DirectoriesContainer = styled.div`
         div:first-child {
             grid-area: auto;
             height: 280px;
-        }
-
-        div:last-child {
-            margin-left: 0;
-            margin-bottom: 20px;
         }
     }
 `

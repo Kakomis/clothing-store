@@ -1,2 +1,0 @@
-export const SET_CART_ITEMS = 'SET_CART_ITEMS'
-export const RESET_CART_ITEMS = 'RESET_CART_ITEMS'

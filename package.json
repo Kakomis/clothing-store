@@ -46,6 +46,7 @@
     "webpack-dev-server": "^4.10.0"
   },
   "devDependencies": {
+    "@types/redux-logger": "^3.0.9",
     "css-loader": "^6.7.1",
     "mini-css-extract-plugin": "^2.6.1",
     "sass": "^1.54.5",

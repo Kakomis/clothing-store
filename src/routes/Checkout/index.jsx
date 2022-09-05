@@ -2,11 +2,11 @@ import React from 'react'
 import './styles.scss'
 import CheckoutItem from '../../components/CheckoutItem'
 import { useSelector } from 'react-redux'
-import { selectCartTotal, selectCartProducts } from '../../store/cart/cart.selector'
+import { selectCartTotal, selectCartItems } from '../../store/cart/cart.selector'
 import PaymentForm from '../../components/PaymentForm'
 
 const Checkout = () => {
-  const cartProducts = useSelector(selectCartProducts)
+  const cartItems = useSelector(selectCartItems)
   const cartTotal = useSelector(selectCartTotal)
 
   return (
@@ -29,7 +29,7 @@ const Checkout = () => {
         </div>
       </div>
       {
-        cartProducts.map(item => <CheckoutItem key={item.id} product={item}/> )
+        cartItems.map(item => <CheckoutItem key={item.id} product={item}/> )
       }
       <span className='total'>
         {cartTotal > 0 && `TOTAL: $${cartTotal}`}

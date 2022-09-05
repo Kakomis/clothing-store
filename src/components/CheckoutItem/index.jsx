@@ -2,25 +2,25 @@ import React from 'react'
 import './styles.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToCart, removeFromCart, subtractFromCart } from '../../store/cart/cart.actions'
-import { selectCartProducts } from '../../store/cart/cart.selector'
+import { selectCartItems } from '../../store/cart/cart.selector'
 
 const CheckoutItem = ({ product }) => {
   const { imageUrl, name, quantity, price } = product
 
   const dispatch = useDispatch()
 
-  const cartProducts = useSelector(selectCartProducts)
+  const cartItems = useSelector(selectCartItems)
 
   const addItemToCart = () => {
-    dispatch(addToCart(cartProducts,product))
+    dispatch(addToCart(cartItems,product))
   }
 
   const subtractItemFromCart = () => {
-    dispatch(subtractFromCart(cartProducts,product))
+    dispatch(subtractFromCart(cartItems,product))
   }
 
   const removeItemFromCart = () => {
-    dispatch(removeFromCart(cartProducts,product))
+    dispatch(removeFromCart(cartItems,product))
   }
 
   return (

@@ -12,6 +12,10 @@ export const SigninContainer = styled.div`
     span {
         font-size: 0.8rem;
     }
+        
+    @media screen and (max-width: 768px) {
+        margin-bottom: 30px;
+    }
 `
 
 export const ButtonsContainer = styled.div`
