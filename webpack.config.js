@@ -2,6 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require("dotenv-webpack");
+const WebpackPwaManifest = require('webpack-pwa-manifest')
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
 
 module.exports = {
     entry: './src/index.tsx',
@@ -56,6 +58,31 @@ module.exports = {
             filename: '[name].css'
         }),
         new Dotenv({ systemvars: true }),
+        new WebpackPwaManifest({
+            name: 'Clothing Store',
+            shortname: 'RopaDpaca',
+            description: 'Cool cloths to awesome prices',
+            background_color: '#fff',
+            theme_color: '#b1a',
+            icons: [
+               {
+                    src: path.resolve('src/assets/crown.png'),
+                    sizes: [128, 256, 512]
+               } 
+            ]
+        }),
+        new WorkboxWebpackPlugin.GenerateSW({
+            runtimeCaching: [
+                {
+                    urlPattern: new RegExp('https://i.ibb.co'),
+                    handler: 'CacheFirst',
+                    options: {
+                        cacheName: 'images'
+                    }
+                }
+            ],
+            maximumFileSizeToCacheInBytes: 5000000
+        })
     ],
     devServer: {
         static: { directory: path.join(__dirname, 'dist') },
