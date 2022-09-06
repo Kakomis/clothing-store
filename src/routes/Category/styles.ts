@@ -11,7 +11,7 @@ export const CategoryItem = styled.div`
     width: 80%;
     margin: 0 auto 80px;
     display: grid;
-    gap: 20px;
+    gap: 25px;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     grid-row: auto;
 `

@@ -39,4 +39,4 @@ const Checkout = () => {
   )
 }
 
-export { Checkout }
+export default Checkout

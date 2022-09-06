@@ -1,4 +1,4 @@
-import React,{ FC } from 'react'
+import React,{ FC, memo } from 'react'
 import { 
   CheckoutItemContainer, 
   ImageContainer,
@@ -18,7 +18,7 @@ type CheckoutItemProps = {
   product: CartItem
 }
 
-const CheckoutItem: FC<CheckoutItemProps> = ({ product }) => {
+const CheckoutItem: FC<CheckoutItemProps> = memo(({ product }) => {
   const { imageUrl, name, quantity, price } = product
 
   const dispatch = useDispatch()
@@ -58,6 +58,6 @@ const CheckoutItem: FC<CheckoutItemProps> = ({ product }) => {
       </RemoveButton>
     </CheckoutItemContainer>
   )
-}
+})
 
 export default CheckoutItem

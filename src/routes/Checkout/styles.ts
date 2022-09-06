@@ -9,11 +9,11 @@ export const CheckoutContainer = styled.div`
   margin: 50px auto;
 
   @media screen and (max-width: 768px) {
-    width: 85%;
+    width: 90%;
   }
 `
 
-export const CheckoutHeader = styled.div`
+export const CheckoutHeader = styled.ul`
   width: 100%;
   padding: 10px 0;
   display: flex;
@@ -21,19 +21,30 @@ export const CheckoutHeader = styled.div`
   border-bottom: 1px solid darkgrey;
 `
 
-export const HeaderBlock = styled.div`
+export const HeaderBlock = styled.li`
+  list-style: none;
   text-transform: capitalize;
   font-size: 1rem;
   width: 23%;
-
+  
   &:last-child {
-    width: 8%;
+      width: 8%;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 21%;
+    font-size: 0.65rem;
+    text-align: center;
+
+    &:last-child {
+      width: 16%;
+    }
   }
 `
 
 export const Total = styled.span`
   margin-top: 30px;
   margin-left: auto;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 `
 

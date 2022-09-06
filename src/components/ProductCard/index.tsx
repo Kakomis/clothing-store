@@ -23,7 +23,7 @@ const ProductCard: FC<ProductCardProps>  = ({ product }) => {
         <Image src={imageUrl} alt={name}/>
         <Footer>
             <Name>{name}</Name>
-            <Price>{price}</Price>
+            <Price>${price}</Price>
         </Footer>
         <AddButton onClick={addProductToCart} buttonType={BUTTON_TYPE_CLASSES.inverted}>Add to cart</AddButton>
     </ProductContainer>

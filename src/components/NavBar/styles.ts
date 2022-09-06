@@ -2,8 +2,8 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 export const Navigation = styled.nav`
-  height: 70px;
   width: 100%;
+  height: 70px;
   margin: 0 auto;
   border-bottom: 1px solid #eceff1;
   display: flex;
@@ -13,15 +13,19 @@ export const Navigation = styled.nav`
 `
 
 export const NavigationLogo = styled(Link)`
+  width: 70px;
   display: grid;
   place-content: center;
   height: 100%;
-  width: 70px;
   padding: 25px;
+
+  @media screen and (max-width: 768px) {
+    width: 20%;
+  }
 `
 
 export const NavigationMenu = styled.div`
-  width: 60%;
+  width: 80%;
   height: 100%;
   display: flex;
   align-items: center;

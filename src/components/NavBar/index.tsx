@@ -38,7 +38,7 @@ const NavBar = () => {
         {currentUser ? (
           <LogOut onClick={handleSignOut}>SIGN OUT</LogOut>
         ) : (
-          <NavLink to="/sign-in">SIGN IN</NavLink>
+          <NavLink to="/login">SIGN IN</NavLink>
         )}
         <CartIcon toogleOpen={toogleOpen} />
       </NavigationMenu>

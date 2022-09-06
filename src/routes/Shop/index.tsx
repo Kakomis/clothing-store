@@ -21,4 +21,4 @@ const Shop = () => {
   )
 }
 
-export { Shop }
+export default Shop

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { CartDropDownContainer, CartItems, EmptyMessage } from  './styles'
 import Button from '../Button'
 import CartItem from '../CartItem'
@@ -8,12 +8,12 @@ import { useSelector } from 'react-redux'
 
 const CartDropDown = () => {
   const cartItems = useSelector(selectCartItems)  
-
   const navigate = useNavigate()
 
-  const goToCheckout = () => {
+  const goToCheckout = React.useCallback(() => {
     navigate('/checkout')
-  }
+  },[])
+
 
   return (
     <CartDropDownContainer>
@@ -21,7 +21,7 @@ const CartDropDown = () => {
           {
             cartItems.length > 0 ?
             cartItems.map(product => <CartItem key={product.id} {...product} />) :
-            <EmptyMessage>Tu bolsa está vacía</EmptyMessage>
+            <EmptyMessage>Your bag is empty</EmptyMessage>
           }
         </CartItems>
         <Button onClick={goToCheckout}>GO TO CHECKOUT</Button>

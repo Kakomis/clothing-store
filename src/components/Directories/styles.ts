@@ -16,15 +16,15 @@ export const DirectoriesContainer = styled.div`
 
     @media screen and (max-width: 768px) {
         width: 90%;
-        gap: 0px;
 
         div {
             margin-left: 0;
+            grid-area: auto;
         }
 
         div:first-child {
             grid-area: auto;
-            height: 280px;
+            height: 290px;
         }
     }
 `

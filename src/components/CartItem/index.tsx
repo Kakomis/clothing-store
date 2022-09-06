@@ -1,9 +1,9 @@
-import React, { FC } from 'react'
+import React, { FC, memo } from 'react'
 import { CartItemContainer, ItemDetails, Image, Name, Price } from './styles'
 import { CartItem } from '../../store/cart/cart.types'
 
 
-const CartItem: FC<CartItem> = ({ name, imageUrl, quantity, price }) => {
+const CartItem: FC<CartItem> = memo(({ name, imageUrl, quantity, price }) => {
   return (
     <CartItemContainer>
        <Image src={imageUrl} alt={name} />
@@ -13,6 +13,6 @@ const CartItem: FC<CartItem> = ({ name, imageUrl, quantity, price }) => {
        </ItemDetails>
     </CartItemContainer>
   )
-}
+})
 
 export default CartItem
